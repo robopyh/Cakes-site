@@ -1,0 +1,338 @@
+/** Атворизация и регистрация **/
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 350px;
+    }
+}
+.modal-content{
+    background-color: #ececec;
+}
+#img_logo{
+    max-height: 100px;
+    max-width: 100px;
+    margin-left: 20px;
+}
+#img_reg{
+    max-height: 100px;
+    max-width: 100px;
+    margin-left: 20px;
+}
+.input-group{
+    margin-bottom: 15px;
+}
+.main > .navbar-static-top{
+    margin-bottom: 0;
+}
+
+/** Категории товаров **/
+
+.nav-tabs{
+    margin-bottom: 15px;
+}
+
+/** Навигация **/
+
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand>img {
+    height: 100%;
+    padding: 15px;
+    width: auto;
+}
+.navbar-brand {
+    height: 80px;
+}
+@media (min-width: 768px){
+    .nav >li >a {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+.navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+}
+@media (min-width: 768px) {
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+
+/** Подпись к картинкам категорий **/
+
+.description{
+    background: rgba(25, 25, 25, .5);
+    color: white;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.fix {
+    width: 100%;
+    padding: 0px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.descr{
+    margin: 5px 0 5px;
+}
+
+/* Breadcrumbs
+
+/** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    left: 100%;
+    z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 10px solid rgb(173, 173, 173);
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+    padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+    padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+    padding:6px 18px 6px 24px;
+}
+.btn-breadcrumb .btn:last-child {
+    margin-left:0px;
+}
+
+/** Default button **/
+.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+    border-left: 10px solid #fff;
+}
+.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+    border-left: 10px solid #ccc;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+    border-left: 10px solid #e6e6e6;
+}
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+    border-left: 10px solid #adadad;
+}
+
+#breadcrumb{
+    padding-bottom: 15px;
+}
+
+/** Footer **/
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left:0 !important;
+    padding: 0;
+}
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.social-ok:hover{
+    background-color: #ed812b;
+    color: #fff;
+}
+.social-vk:hover{
+    background-color: #45668e;
+    color: #fff;
+}
+.social-inst:hover{
+    background: radial-gradient(at 0 0, #2530f9 0, rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%), radial-gradient(circle at 170% 0, rgba(255,255,255,0) 0, rgba(255,255,255,0) 39%, #EC603F 77%, rgba(244,182,58,1) 92%, rgba(244,182,58,1) 100%), linear-gradient(135deg, #4964CF 0, #4964CF 24%, #D5307D 100%);
+    color: #fff;
+}
+.social-em:hover{
+    background-color: #d34836;
+    color: #fff;
+}
+
+a.socialIcon:hover, .socialHoverClass {
+    color:#44BCDD;
+}
+
+.social-circle li a {
+    display:inline-block;
+    position:relative;
+    margin:0 auto 0 auto;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+    text-align:center;
+    width: 50px;
+    height: 50px;
+    font-size:20px;
+}
+.social-circle li i {
+    margin:0;
+    line-height:50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.social-circle i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.social-network > li > a {
+    background-color: #D3D3D3;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+@media (max-width: 768px){
+    body {
+        margin-bottom: 115px;
+    }
+}
+@media (min-width: 768px){
+    body {
+        margin-bottom: 80px;
+    }
+}
+.footer{
+    background: #333;
+    position: absolute;
+    color: #fff;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-xs{
+    margin-top: 15px;
+}
+
+@media (max-width: 768px){
+    .footer{
+        height: 115px;
+        padding: 0px;
+    }
+}
+@media (min-width: 768px){
+    .footer{
+        height: 80px;
+    }
+}
+
+/** Сетка товаров **/
+
+.item-image{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 75%;
+}
+.item-image > img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.cart-icon{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+}
+.caption{
+    padding: 0 !important;
+}
+/*.thumbnail{
+    background-color: #D3D3D3;
+}*/
+.fa-cart-plus{
+    color: #fff;
+}
+.fa-square{
+    color: #333;
+}
+.cart-icon:hover > .fa-square{
+    color: darkred;
+}
+.cart-icon:hover{
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+}
+
+/** Добавление товаров **/
+/** Удаляет стрелки в input **/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+/** Кнопка выбора изображения **/
+#my-file-selector{
+    display:none;
+}
+/*#add_img{
+    width: 100%;
+}*/
+#upload-file-info{
+    margin-left: 5px;
+}
+.input-group > textarea{
+    resize: vertical;
+}
+#product-description{
+    width: 100%;
+}
