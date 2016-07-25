@@ -7,12 +7,7 @@
 .modal-content{
     background-color: #ececec;
 }
-#img_logo{
-    max-height: 100px;
-    max-width: 100px;
-    margin-left: 20px;
-}
-#img_reg{
+.img_logo{
     max-height: 100px;
     max-width: 100px;
     margin-left: 20px;
@@ -145,6 +140,10 @@
 }
 
 /** Footer **/
+.pull-left{
+    margin: 5px 0 5px;
+}
+
 ul.social-network {
     list-style: none;
     display: inline;
@@ -264,13 +263,18 @@ html {
     overflow: hidden;
     padding-bottom: 75%;
 }
-.item-image > img{
+.link-image{
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+}
+.link-icon{
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
 }
 .cart-icon{
     position: absolute;
@@ -321,13 +325,16 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 /** Кнопка выбора изображения **/
-#my-file-selector{
+#my-file-selector-1{
     display:none;
 }
-/*#add_img{
-    width: 100%;
-}*/
-#upload-file-info{
+#my-file-selector-2{
+    display:none;
+}
+#upload-file-info-1{
+    margin-left: 5px;
+}
+#upload-file-info-2{
     margin-left: 5px;
 }
 .input-group > textarea{
@@ -335,4 +342,49 @@ input[type="number"] {
 }
 #product-description{
     width: 100%;
+}
+#filling-description{
+    width: 100%;
+}
+
+/** Shopping cart **/
+
+ul.dropdown-cart{
+    min-width:250px;
+}
+ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+}
+ul.dropdown-cart li .item:hover{
+    background-color:#f3f3f3;
+}
+ul.dropdown-cart li .item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+ul.dropdown-cart li .item-left{
+    float:left;
+}
+ul.dropdown-cart li .item-left img,
+ul.dropdown-cart li .item-left span.item-info{
+    float:left;
+}
+ul.dropdown-cart li .item-left span.item-info{
+    margin-left:10px;
+}
+ul.dropdown-cart li .item-left span.item-info span{
+    display:block;
+}
+ul.dropdown-cart li .item-right{
+    float:right;
+}
+ul.dropdown-cart li .item-right button{
+    margin-top:14px;
 }

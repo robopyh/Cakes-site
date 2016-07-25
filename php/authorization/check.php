@@ -2,15 +2,6 @@
 
 // Скрипт проверки
 
-# Соединямся с БД
-
-$link = mysqli_connect("localhost", "root", "FyNh170794", "cakes");
-
-if (mysqli_connect_errno()) {
-    printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-    exit();
-}
-
 if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
 {   
     $query = mysqli_query($link, "SELECT * FROM users WHERE user_id = '".intval($_COOKIE['id'])."' LIMIT 1");

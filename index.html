@@ -19,6 +19,11 @@
     <![endif]-->
 </head>
 <body class="main">
+
+<?php
+    include("php/connect.php");
+?>
+
 <!--Навигация-->
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
@@ -34,13 +39,13 @@
         <div class="collapse navbar-collapse" id="responsive-menu">
             <ul class="nav navbar-nav">
                 <li><a href="catalog.html">Каталог</a></li>
-                <li><a href="#">Начинки</a></li>
-                <li><a href="#">Оплата и доставка</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="fillings.html">Начинки</a></li>
+                <li><a href="cou.html">Оплата и доставка</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Авторизация</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#registration-modal">Регистрация</a></li>
+                <li><a href="" data-toggle="modal" data-target="#login-modal">Авторизация</a></li>
+                <li><a href="" data-toggle="modal" data-target="#registration-modal">Регистрация</a></li>
             </ul>
         </div>
     </div>
@@ -94,7 +99,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img id="img_logo" src="img/logo.png">
+                <img class="img_logo" src="img/logo.png">
                 <button class="close" type="button" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -124,7 +129,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img id="img_reg" src="img/logo.png">
+                <img class="img_logo" src="img/logo.png">
                 <button class="close" type="button" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -161,7 +166,11 @@
 <!--Footer-->
 <div class="container-fluid footer">
     <div class="container hidden-xs">
-        <p class="navbar-text pull-left">© 2016 - Site Built By L&A.</p>
+        <p class="pull-left">
+            © 2016 - Site Built By L&A.
+            <br>
+            <a href="mailto:andreytretnikov@mail.ru">Contact us</a>
+        </p>
         <div class="pull-right">
             <ul class="social-network social-circle">
                 <li><a target="_blank" href="https://www.instagram.com/irina_tretnikova/" class="social-inst"><i class="fa fa-instagram fa-lg"></i></a></li>
@@ -188,5 +197,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
+<script src="js/cakes.js"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@
                 <li class="dropdown">
                     <a href="catalog.html">Каталог <b class="caret hidden-xs"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="cakes.html">Торты</a></li>
+                        <li><a href="products.html">Торты</a></li>
                         <li><a href="#">Кейкпопсы</a></li>
                         <li><a href="#">Капкейки</a></li>
                         <li><a href="#">Макаронс</a></li>
@@ -48,7 +48,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" data-toggle="modal" data-target="#add-product-modal">Авторизация</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#registration-modal">Регистрация</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#add-filling-modal">Регистрация</a></li>
             </ul>
         </div>
     </div>
@@ -59,7 +59,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img id="img_logo" src="img/logo.png">
+                <img class="img_logo" src="img/logo.png">
                 <button class="close" type="button" data-dismiss="modal">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -98,13 +98,50 @@
                         <textarea name="description" class="form-control" rows="5" placeholder="Описание"></textarea>
                     </div>
                     <div class="input-group">
-                        <label class="btn btn-default" for="my-file-selector" id="add_img">
+                        <label class="btn btn-default" for="my-file-selector-1">
                             <i class="fa fa-folder-open"></i>
                             <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
-                            <input name="img" id="my-file-selector" type="file" onchange="$('#upload-file-info').html($(this).val()); strip_path();">
+                            <input name="img" id="my-file-selector-1" type="file" onchange="$('#upload-file-info-1').html($(this).val()); strip_path();">
                             Добавить изображение
                         </label>
-                        <span class='label label-info' id="upload-file-info"></span>
+                        <span class='label label-info' id="upload-file-info-1"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fa fa-plus"></i> ДОБАВИТЬ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Окно добавления начинки-->
+<div class="modal fade" id="add-filling-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" align="center">
+                <img class="img_logo" src="img/logo.png">
+                <button class="close" type="button" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" action="php/add_filling.php" method="post">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                        <input name="name" type="text" class="form-control" placeholder="Наименование начинки" required>
+                    </div>
+                    <div class="input-group" id="filling-description">
+                        <textarea name="description" class="form-control" rows="5" placeholder="Описание"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label class="btn btn-default" for="my-file-selector-2">
+                            <i class="fa fa-folder-open"></i>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
+                            <input name="img" id="my-file-selector-2" type="file" onchange="$('#upload-file-info-2').html($(this).val()); strip_path();">
+                            Добавить изображение
+                        </label>
+                        <span class='label label-info' id="upload-file-info-2"></span>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">
                         <i class="fa fa-plus"></i> ДОБАВИТЬ
@@ -143,42 +180,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
-<script>
-    //Скрываем/показываем подкатегории
-    function hideSelect(value) {
-        if (value == "Cakes") {
-            $("#cake-category_select").fadeIn();
-            $("#subcategory").attr("disabled", false);
-        }
-        else {
-            $("#cake-category_select").fadeOut();
-            $("#subcategory").attr("disabled", true);
-        }
-    }
-    //Обновляем форму после закрытия
-    $('.modal').on('hidden.bs.modal', function(){
-        $(this).find('form')[0].reset();
-        $('#upload-file-info').hide();
-        hideSelect("Cakes");
-    });
-    //Убираем ссылки из фокуса после нажатия
-    var selectedInput = null;
-    $(document).ready(function() {
-        $('a').focus(function() {
-            this.blur();
-        });
-    });
-    //Убираем C:\fakepath на webkit
-    function strip_path() {
-        text = $("span.label").text();
-        $("span.label").text(text.replace('C:\\fakepath\\',''));
-    }
-    //Дизейблим пустые поля после подтверждения запроса
-    $('form').submit(function(e){
-        var emptyinputs = $(this).find('input').filter(function(){
-            return !$.trim(this.value).length;  // get all empty fields
-        }).prop('disabled',true);
-    });
-</script>
+<script src="js/cakes.js"></script>
 </body>
 </html>

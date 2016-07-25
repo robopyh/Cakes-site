@@ -11,29 +11,20 @@ if (mysqli_connect_errno()) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     # Валидация полученных данных
-    $price = 0;
-    $category = $subcategory = $name = $description = $img = '';
+    $name = $description = $img = '';
 
-    $category = test_input($_POST['category']);
     $name = test_input($_POST['name']);
 
-    if (isset($_POST['subcategory']))
-        $subcategory = test_input($_POST['subcategory']);
-    if (isset($_POST['price']))
-        $price = test_input($_POST['price']);
     if (isset($_POST['description']))
         $description = test_input($_POST['description']);
 
     if (!preg_match("/^[a-zA-Zа-яА-Я0-9 _-]+$/",$name)){
     //error
     }
-    if (!preg_match("/^[0-9]+$/",$price)){
-        //error
-    }
 
     #загрузка файла
 
-    isset($_POST['subcategory']) ? $uploaddir = '../img/upload/'.$category.'/'.$subcategory.'/' : $uploaddir = '../img/upload/'.$category.'/';
+    $uploaddir = '../img/upload/fillings/';
 
     if (!is_dir($uploaddir)){
         mkdir($uploaddir, 0777, true);
@@ -49,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     #Добавляем в БД
 
-    if (mysqli_query($link, "INSERT INTO products SET product_category='".$category."', product_subcategory='".$subcategory."', product_name='".$name."', product_price='".$price."', product_description='".$description."', product_img='".str_replace('../','',$uploadfile)."'"))
+    if (mysqli_query($link, "INSERT INTO fillings SET filling_name='".$name."', filling_description='".$description."', filling_img='".str_replace('../','',$uploadfile)."'"))
     {
         //успех
         header("Location: ../index.html");
