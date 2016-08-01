@@ -45,8 +45,10 @@
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="" data-toggle="modal" data-target="#login-modal">Авторизация</a></li>
-                <li><a href="" data-toggle="modal" data-target="#registration-modal">Регистрация</a></li>
+                <li><a href="order.html">Сделать заказ</a></li>
+                <?php
+                    include("php/show_cart.php");
+                ?>
             </ul>
         </div>
     </div>
@@ -167,6 +169,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
 <script src="js/lightbox.js"></script>
+<script src="js/jquery.actual.min.js"></script>
 <script src="js/cakes.js"></script>
 </body>
 </html>

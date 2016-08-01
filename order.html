@@ -8,9 +8,9 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/lightbox.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,101 +44,89 @@
                 <li><a href="cou.html">Оплата и доставка</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="order.html">Сделать заказ</a></li>
-                <?php
-                    include("php/show_cart.php");
-                ?>
-            </ul>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="row" id="breadcrumb">
-        <!--Breadcrumbs-->
-        <div class="container">
-            <div class="btn-group btn-breadcrumb">
-                <a href="index.html" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
-                <a href="catalog.html" class="btn btn-default">Каталог</a>
-                <a href="#" class="btn btn-default" id="breadcrumb-category"></a>
+    <form action="" method="post" class="order">
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <h3>Дата заказа<span class="asterisk">*</span></h3>
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' class="form-control" name="date" required/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-
-    <?php
-        include("php/show-products.php");
-    ?>
-
-</div>
-
-<!--Окно авторизации-->
-<div class="modal fade" id="login-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header" align="center">
-                <img class="img_logo" src="img/logo.png">
-                <button class="close" type="button" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <h3>Дизайн торта</h3>
+                    Выбранные варианты:
+                    <ul class="list-unstyled">
+                        <?php
+                            include("php/show_product_cart.php");
+                        ?>
+                    </ul>
+                    Собсвтенный вариант:
+                    <div class="input-group">
+                        <label class="btn btn-default" for="my-file-selector">
+                            <i class="fa fa-folder-open"></i>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
+                            <input name="own_imgs[]" multiple="multiple" id="my-file-selector" type="file" onchange="multiple_upload();">
+                            Добавить изображение
+                        </label>
+                        <span class='label label-info' id="upload-file-info"></span>
+                    </div>
+                    Комментарии:
+                    <div class="input-group" id="product-comments">
+                        <textarea name="product_comments" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <form action="php/authorization/login.php" method="post">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="login" type="text" class="form-control" placeholder="Логин" required>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <h3>Начинка</h3>
+                    Выбранные варианты:
+                    <ul class="list-unstyled">
+                        <?php
+                            include("php/show_filling_cart.php");
+                        ?>
+                    </ul>
+                    Комментарии:
+                    <div class="input-group" id="filling-comments">
+                        <textarea name="filling_comments" class="form-control" rows="3"></textarea>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input name="password" type="password" class="form-control" placeholder="Пароль" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fa fa-sign-in"></i> ВОЙТИ
-                    </button>
-                    <button type="button" class="btn btn-link btn-block">Забыли пароль?</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Окно регистрации-->
-<div class="modal fade" id="registration-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header" align="center">
-                <img class="img_logo" src="img/logo.png">
-                <button class="close" type="button" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="php/authorization/register.php" method="post">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="login" type="text" class="form-control" placeholder="Логин" required>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="e-mail" type="text" class="form-control" placeholder="E-mail" required>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input name="password" type="password" class="form-control" placeholder="Пароль" required>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input name="confirmPassword" type="password" class="form-control"
-                               placeholder="Подтвержение пароля"
-                               required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fa fa-birthday-cake"></i> ЗАРЕГИСТРИРОВАТЬСЯ
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="form-inline">
+                <div class="container">
+                    <h3>Информация о заказчике</h3>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>ФИО заказчика<span class="asterisk">*</span></label>
+                    <input type="text" name="user" class="form-control" id="user" required>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>E-mail<span class="asterisk">*</span></label>
+                    <input type="text" name="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Контактный телефон<span class="asterisk">*</span></label>
+                    <input type="text" name="phone" class="form-control" id="phone" required>
+                </div>
+            </div>
+        </div>
+        <div id="order_sumbit">
+            <button type="submit" class="btn btn-success btn-block">ПОДТВЕРДИТЬ</button>
+            <span class="asterisk">*</span> - помечены поля, которые необходимо заполнить
+        </div>
+    </form>
 </div>
 
 <!--Footer-->
@@ -175,8 +163,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.js"></script>
-<script src="js/lightbox.js"></script>
-<script src="js/jquery.actual.min.js"></script>
+<script src="js/moment-with-locales.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/cakes.js"></script>
 </body>
 </html>
